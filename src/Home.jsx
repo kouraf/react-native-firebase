@@ -79,9 +79,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     zIndex: 10000
   },
-  tables: {
-
-  },
   tablesHeader: {
     backgroundColor: '#1c3738',
   },
