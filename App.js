@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import { NativeRouter, Route } from "react-router-native";
+import Home from "./src/Home";
+import AddContact from "./src/AddContact";
+import EditContact from "./src/EditContact";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+export default App = () => (
+  <NativeRouter>
+    <StatusBar hidden />
+    <Route exact path="/" component={Home} />
+    <Route path="/add" component={AddContact} />
+    <Route path="/edit/:id" component={EditContact} />
+  </NativeRouter>
+);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 25
   },
+  nav: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 65,
+    backgroundColor: "#f0fa23"
+  },
+  homeLink: {
+    marginLeft: 10
+  },
+  addLink: {
+    marginRight: 10,
+    backgroundColor: "red",
+    borderRadius: 100,
+    width: 30,
+    height: 30,
+    textAlign: "center",
+    textAlignVertical: "center",
+    color: "white"
+  }
 });
